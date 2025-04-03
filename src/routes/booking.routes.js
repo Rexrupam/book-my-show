@@ -1,9 +1,7 @@
 import { Router } from "express";
-import  {check, createBooking}  from "../controller/booking.controller.js";
+import  {createBooking, showLastBooking}  from "../controller/booking.controller.js";
 const router = Router();
 
-router.post('/booking', ()=>{ 
-    console.log('hello')
-}, check)
-
-export default router;
+router.route('/booking').post(createBooking)
+router.route('/booking').get(showLastBooking)
+export default router
